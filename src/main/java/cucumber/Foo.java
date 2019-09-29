@@ -7,7 +7,15 @@ public class Foo {
     private String sign;
     private boolean flag;
 
-    public Foo() {
+//    public Foo() {
+//    }
+
+    public Foo(int id, String name, double rate, String sign, boolean flag) {
+        this.id = id;
+        this.name = name;
+        this.rate = rate;
+        this.sign = sign;
+        this.flag = flag;
     }
 
     public int getID() {
