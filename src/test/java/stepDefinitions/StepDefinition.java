@@ -21,6 +21,13 @@ public class StepDefinition {
         }
     }
 
+    @Given("^createIncompleteFoo$")
+    public void createIncompleteFoo(List<Foo> foos) throws Throwable {
+        for (Foo foo : foos) {
+            System.out.println(foo);
+        }
+    }
+
     @Given("^User is on landing page$")
     public void user_is_on_landing_page() throws Throwable {
         System.out.println("User on landing page");

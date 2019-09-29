@@ -8,3 +8,13 @@ Feature: Foo Object Test
     | 1 | ccf  | 5.6  | ccx  |false|
 
 
+  @incompleteFoo
+  Scenario: Cucumber can pick up missing field Foo Object
+    Given createIncompleteFoo
+      |id | name |
+      | 0 | abc  |
+      | 1 | ccf  |
+
+
+
+
