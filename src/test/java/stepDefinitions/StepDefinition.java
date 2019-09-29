@@ -7,9 +7,19 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.And;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
+import cucumber.Foo;
+
+import java.util.List;
 
 @RunWith(Cucumber.class)
 public class StepDefinition {
+
+    @Given("^createFoo$")
+    public void createFoo(List<Foo> foos) throws Throwable {
+        for (Foo foo : foos) {
+            System.out.println(foo);
+        }
+    }
 
     @Given("^User is on landing page$")
     public void user_is_on_landing_page() throws Throwable {
