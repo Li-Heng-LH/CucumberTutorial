@@ -59,6 +59,20 @@ public class Foo {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Foo foo = (Foo) o;
+
+        if (id != foo.id) return false;
+        if (Double.compare(foo.rate, rate) != 0) return false;
+        if (flag != foo.flag) return false;
+        if (name != null ? !name.equals(foo.name) : foo.name != null) return false;
+        return sign != null ? sign.equals(foo.sign) : foo.sign == null;
+    }
+
+    @Override
     public String toString() {
         return "cucumber.Foo{" +
                 "ID=" + id +

@@ -26,6 +26,8 @@ public class StepDefinition {
         for (Foo foo : foos) {
             System.out.println(foo);
         }
+        System.out.println("== :" + (foos.get(0) == foos.get(1)));
+        System.out.println("equals: " + foos.get(0).equals(foos.get(1)));
     }
 
     @Given("^User is on landing page$")
