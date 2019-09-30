@@ -11,19 +11,26 @@ import cucumber.Foo;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 @RunWith(Cucumber.class)
 public class StepDefinition {
 
+    private List<Foo> foos;
+
     @Given("^createFoo$")
     public void createFoo(List<Foo> foos) throws Throwable {
-        for (Foo foo : foos) {
+        this.foos = foos;
+        for (Foo foo : this.foos) {
             System.out.println(foo);
         }
     }
 
     @Given("^createIncompleteFoo$")
     public void createIncompleteFoo(List<Foo> foos) throws Throwable {
-        for (Foo foo : foos) {
+        this.foos = foos;
+        for (Foo foo : this.foos) {
             System.out.println(foo);
         }
         System.out.println("== :" + (foos.get(0) == foos.get(1)));
@@ -35,9 +42,23 @@ public class StepDefinition {
         System.out.println("User on landing page");
     }
 
+    @When("^update$")
+    public void update() {
+        for (Foo foo: foos) {
+            foo.setRate(9.99);
+            foo.setRate(9.99);
+        }
+    }
+
     @When("^User login into application with username and password$")
     public void user_login_into_application_with_username_and_password() throws Throwable {
         System.out.println("User logged in");
+    }
+
+    @Then("^shouldChange$")
+    public void shouldChange() throws Throwable {
+        assertTrue(foos.get(0).getRate() == 9.99);
+        assertTrue(foos.get(1).getRate() == 9.99);
     }
 
     @Then("^Homepage is populated$")

@@ -21,5 +21,13 @@ Feature: Foo Object Test
       | 0 |
       | 0 |
 
+    @PersistObject
+    Scenario: Object Persistence Test
+      Given createIncompleteFoo
+        |id | name |
+        | 0 | abc  |
+        | 1 | ccf  |
+      When update
+      Then shouldChange
 
 
